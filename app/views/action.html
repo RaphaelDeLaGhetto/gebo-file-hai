@@ -1,0 +1,10 @@
+<div class="row">
+    <input id="fileUploadButton"
+           type="file"
+           name="resume"
+           multiple
+           onchange="angular.element(this).scope().bulkProcess(this.files)"
+           style="display:none">
+    </input>
+    <button class="btn btn-md" ng-click="clickHiddenInput()">Choose files</button>
+</div>

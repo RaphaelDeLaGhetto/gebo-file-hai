@@ -1,0 +1,19 @@
+{
+  "name": "gebo-file-hai",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.2.x",
+    "json3": "~3.2.x",
+    "es5-shim": "~2.0.x",
+    "angular-resource": "~1.0.x",
+    "angular-route": "~1.2.x",
+    "angular-bootstrap": "~0.9.x",
+    "bootstrap": "~3.0.x",
+    "gebo-client-performatives": "~0.0.x",
+    "gebo-client-token": "~0.0.x"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.0.x",
+    "angular-scenario": "~1.0.x"
+  }
+}

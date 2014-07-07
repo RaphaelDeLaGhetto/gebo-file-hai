@@ -1,0 +1,13 @@
+/* Will be compiled down to a single stylesheet with your sass files */
+body { padding-top: 70px; }
+
+/**
+ * Makes sure the collapsed navbar is invisible
+ */
+.visible-xs.collapse.in {
+    display: block!important;
+}
+.visible-xs.collapse {
+    display: none!important;
+}
+

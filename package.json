@@ -1,0 +1,50 @@
+{
+  "name": "gebo-file-hai",
+  "description": "A file manager for the gebo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/RaphaelDeLaGhetto/gebo-file-hai",
+  "author": {
+    "name": "Daniel Bidulock",
+    "email": "daniel@capitolhill.ca"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RaphaelDeLaGhetto/gebo-file-hai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RaphaelDeLaGhetto/gebo-file-hai/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/RaphaelDeLaGhetto/gebo-file-hai/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "app/<project-name>.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.x",
+    "grunt-contrib-copy": "~0.4.x",
+    "grunt-contrib-concat": "~0.3.x",
+    "grunt-contrib-coffee": "~0.6.x",
+    "grunt-contrib-uglify": "~0.2.x",
+    "grunt-contrib-compass": "~0.1.x",
+    "grunt-contrib-jshint": "~0.6.x",
+    "grunt-contrib-cssmin": "~0.5.x",
+    "grunt-contrib-connect": "~0.2.x",
+    "grunt-contrib-clean": "~0.4.x",
+    "grunt-contrib-htmlmin": "~0.1.x",
+    "grunt-contrib-imagemin": "~0.1.x",
+    "grunt-contrib-livereload": "~0.1.x",
+    "grunt-bower-requirejs": "~0.4.x",
+    "grunt-usemin": "~0.1.x",
+    "grunt-regarde": "~0.1.x",
+    "grunt-rev": "~0.1.x",
+    "grunt-karma": "~0.3.x",
+    "grunt-open": "~0.2.x",
+    "matchdep": "~0.1.x",
+    "grunt-google-cdn": "~0.1.x",
+    "grunt-ngmin": "~0.0.x"
+  },
+  "keywords": []
+}
