@@ -217,4 +217,80 @@ describe('Controller: ActionCtrl', function () {
         });
     });
 
+    /**
+     * upload
+     */
+    describe('upload', function() {
+
+        var files, callCount;
+
+        beforeEach(function() {
+            /**
+             * The biggest part of testing this function so far is
+             * determining how many times it calls on the agent
+             */
+            callCount = 0;
+
+            /**
+             * Haven't had a lot of success using $httpBackend
+             * with multipart/form-data. Figured it was time to
+             * cut the crap and just stub (mock?) out the function
+             */
+            this._oldFunc = Token.perform;
+            Token.perform = function(form) {
+
+                var deferred = $q.defer();
+
+                expect(form instanceof FormData).toBe(true);
+                callCount += 1;
+
+                deferred.resolve('OK');
+                return deferred.promise;
+            };
+
+            files = [{
+                name: 'some file',
+                size: '100000',
+                type: 'text/plain',
+            }];
+        });
+
+        afterEach(function() {
+            Token.perform = this._oldFunc;
+        });
+
+        /**
+         * Verify the stubbed function is working
+         */
+        it('should POST form data', function() {
+            scope.upload(files); 
+            scope.$apply();
+        });
+
+        it('should POST form data x times', function() {
+            // Send five resumes
+            files = files.concat(files.concat(files.concat(files.concat(files))));
+            expect(files.length).toBe(5);
+
+            scope.upload(files);
+            expect(callCount).toBe(5);
+            callCount = 0;
+
+            // Send ten resumes
+            files = files.concat(files);
+            expect(files.length).toBe(10);
+        });
+
+        it('should set an appropriate progress message', function() {
+            scope.upload(files);
+            scope.$apply();
+            expect(scope.progress).toEqual('Done, 1/1');
+
+            files = files.concat(files.concat(files.concat(files.concat(files))));
+            scope.upload(files);
+            scope.$apply();
+            expect(scope.progress).toEqual('Done, 5/5');
+        });
+
+    });
 });

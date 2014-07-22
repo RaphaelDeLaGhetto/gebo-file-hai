@@ -52,5 +52,38 @@ angular.module('geboHai')
               });
       };
 
-    $scope.message = 'Hello, world!';
+    /**
+     * Send files to the gebo
+     */
+    $scope.upload = function(files) {
+        $scope.progress = 'Starting...';
+        
+//        for (var i = 0; i < files.length; i++) {
+          $scope.data = null;
+          $scope.resnerJson = null;
+          $scope.opponentJson = null;
+  
+          var form = new FormData();
+          form.append('sender', Token.agent().email);
+          form.append('performative', 'request');
+          form.append('action', 'save');
+          //form.append('content', JSON.stringify({ opponent: 'HireAbility' }));
+          form.append('gebo', Token.getEndpoints().gebo);
+          //form.append('files', files[i]);
+          form.append('files', files);
+  
+          Token.perform(form).
+              then(function(out) {
+//                  $scope.progress = i + '/' + files.length;// + ', ' + files[i].name;
+//                  if (i === files.length) {
+                    $scope.progress = 'Done, ' + $scope.progress;
+//                  }
+                }).
+              catch(function(err) {
+                  console.log(err);
+                  $scope.error = JSON.stringify(err, null, 4);
+                });
+//        }
+      };
+
   });
